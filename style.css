@@ -1,0 +1,88 @@
+body{
+  background-color: beige;
+  text-align: center;
+  font-family: monospace;
+}
+fieldset{
+  width: inherit;
+}
+#rate{
+  display: none;
+}
+
+#comments{
+  display: inline-block;
+}
+
+#send{
+  
+}
+
+.checked{
+  color: orange;
+}
+
+fieldset{
+  display: inline-block;
+  border: 5px solid (internal value);
+}
+.commentname{
+  color: blue
+}
+.input {
+  text-align: right;
+}
+.label{
+  text-align: left;
+}
+/*.inputLabel{
+  display: block;
+}*/
+.contact{
+  display: inline-flex;
+}
+.login{
+  text-align: right;
+}
+.LogIn{
+  display: none;
+}
+.AllLogin{
+  display: block;
+  text-align: right;
+}
+.SingUp{
+  display: none;
+  text-align: right;
+}
+
+.a2{
+  color: orange;
+}
+.a3{
+  color: orange;
+}
+.a4{
+  color: orange;
+}
+.a5{
+  color: orange;
+}
+.b3{
+  color: orange;
+}
+.b4{
+  color: orange;
+}
+.b5{
+  color: orange;
+}
+.c4{
+  color: orange;
+}
+.c5{
+  color: orange;
+}
+.d5{
+  color: orange;
+}

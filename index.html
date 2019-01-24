@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style">
+    <title>Home</title>
+  </head>
+  <body>
+    <nav>
+      <div class="AllLogin">
+      <div class="login">
+        <button onclick="login()">Log in</button>
+        <button onclick="singUp()">Sing up</button>
+      </div>
+      <div id="LogIn" class="LogIn">
+        <form method="post" action="/login">
+          <fieldset>
+            <legend>Login</legend>
+            <label for="username"></label>
+            <input type="text" name="username" placeholder="Gebruikersnaam"></input>
+            <label for="password"></label>
+            <input type="password" name="password" placeholder="Wachtwoord"></input>
+            <input type="submit" value="Log in"></input>
+          </fieldset>
+        </form>
+      </div>
+      <div id="SingUp" class="SingUp">
+        <form method="post" action="/welkom">
+          <fieldset>
+            <legend>Sing up</legend>
+            <label for="newUsername"></label>
+            <input type="text" name="newUsername" placeholder="Nieuwe gebruikersnaam"></input>
+            <label for="newPassword"></label>
+            <input type="password" name="newPassword" placeholder="Nieuw wachtwoord"></input>
+            <input type="submit" value="Maak account"></input>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+      <a href="/"><button>Home</button></a>
+      <!--<a href="/bewerken"><button>Bewerkpagina</button></a>
+      <a href="/preview"><button>Bekijkpagina</button></a>-->
+      <a href="/pages"><button>Uw pagina's</button></a>
+      <a href="/help"><button>Help</button></a>
+    </nav>
+    <noscript>Deze site maakt gebruik van JavaScript. Probeer het in een andere browser als bijvoorbeeld <a href="https://www.google.nl/chrome/index.html">Chrome</a></noscript>
+    <h1 id="title">Welkom op zelf-presentatie-maken.nl</h1>
+    <br>
+    <p id="p">De site om snel een presentatie in elkaar te flansen.
+    <br>
+    Er is een uitgebreide handleiding. <br>Als u tips heeft dan kunt u ze hieronder opgeven.</p>
+    <a href="/help"><button id="handleiding">Handleiding voor beginners</button></a>
+    <br>
+    <a href="/pages"><button id="button1">Direct Starten</button></a>
+    <h1>Reactie plaatsen</h1>
+        <form id="form"action="/comments" method="post">
+          <div class="contact">
+          <fieldset>
+            <legend>Reactie plaatsen</legend>
+                <div class="inputLabel"><label for="name"><div class="label">Naam:</div></label>
+                <div class="input"><input width="auto" required type="text" id="name" name="name" placeholder="Naam" /></div></div>
+                <br>
+                <div class="inputLabel"><label for="email"><div class="label">Email:</div></label>
+                <div class="input"><input width="auto" required type="email" name="email" id="email" placeholder="Email-adres" /></div></div>
+                <br>
+                <div class="inputLabel"><label for="message"><div class="label">Bericht:</div></label>
+                <div class="input"><textarea width="auto" required name="comment" id="message" placeholder="Bericht"></textarea></div></div>
+                <br>
+                <div class="input">
+                  <span id="rate1" onclick="rate1()" onmouseover="rate1()" class="fa fa-star"></span>
+                  <span id="rate2" onclick="rate2()" onmouseover="rate2()" class="fa fa-star"></span>
+                  <span id="rate3" onclick="rate3()" onmouseover="rate3()" class="fa fa-star"></span>
+                  <span id="rate4" onclick="rate4()" onmouseover="rate4()" class="fa fa-star"></span>
+                  <span id="rate5" onclick="rate5()" onmouseover="rate5()" class="fa fa-star"></span>
+                  <input readOnly type="number" width="auto" required name="cijfer" id="rate" min="1" max="5" value="" width="4">
+                  <img src='https://image.flaticon.com/icons/svg/60/60525.svg' width='20px' height='20px' onclick="document.getElementById('form').submit()"></img>
+                </div>
+            </fieldset>
+            </div>
+        </form>
+    <fieldset id="comments"><p id="allComments">Er zijn nog geen reacties.</p></fieldset>
+    <script type="text/javascript" src="/homescript"></script>
+  </body>
+</html>

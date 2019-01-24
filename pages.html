@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pagina's</title>
+    <style>
+      body{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/"><button>Home</button></a>
+      <a href="/pages"><button>Uw pagina's</button></a>
+      <a href="/help"><button>Help</button></a>
+    </nav>
+    <h2>Uw pagina's</h2>
+    <p id="pages"></p>
+    <script>
+      async function show(){
+        //const user = localStorage.getItem("name")
+        const data = await fetch('https://zelfpresentatiemaken.firebaseio.com/gebruikers/'+'hananja'+'/presentaties.json')
+        const alData = await data.json()
+        const allData = await alData.reverse()
+
+        console.log(allData);
+        let page = ''
+        var i = ''
+        for (i = 0; i < allData.length;){
+          document.getElementById("pages").innerHTML = document.getElementById("pages").innerHTML + '<button onclick=openen('+i+')>'+allData[i].presentatietitel+'</button><br>'
+          i = i + 1;
+        }
+        document.getElementById("pages").innerHTML = document.getElementById("pages").innerHTML + '<a href="/nieuwepresentatie"><button>Niewe pagina</button></a><br>'
+      }
+      show()
+      async function openen(naam){
+        const data = await fetch('https://zelfpresentatiemaken.firebaseio.com/gebruikers/'+'hananja'+'/presentaties.json')
+        const allData = await data.json()
+        localStorage.setItem("presentatie", naam)
+        localStorage.setItem("presentatietitel", allData[naam].presentatietitel)
+        localStorage.setItem("nieuw", "nee")
+        window.open('/bewerken', '_self')
+      }
+    </script>
+  </body>
+</html>

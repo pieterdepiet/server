@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zelf presentatie maken</title>
+    <style>
+      body{
+        text-align: center;
+      }
+      textarea{
+        resize: none;
+        border: none
+      }
+      .submit {
+        display: right;
+        position: absolute;
+      }
+      fieldset {
+        border-radius: 25px;
+        border-width: thick;
+        display: inline-block;
+        background-color: gray;
+        border: none;
+      }
+      button {
+        color: black;
+        background-color: white;
+      }
+      div{
+        display: inline-block;
+      }
+      #kleuren{
+        display: none;
+      }
+      input{
+        color: black;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body id="achtergrond1">
+      <fieldset>
+        <nav>
+          <a href="/"><button>Home</button></a>
+          <!--<a href="/bewerken"><button>Bewerkpagina</button></a>-->
+          <a href="/preview" target="_blank"><button>Bekijkpagina</button></a>
+          <a href="/pages"><button>Uw pagina's</button></a>
+          <a href="/help"><button>Help</button></a>
+          <br>
+          <div id="kleuren">
+            <form id="kleurenform" method="post" action="/presentatieKleuren" onchange="save1()">
+              <strong>Tekstkleur:</strong>
+                <select name="color" id="tekstkleur" onchange="verandertekst()">
+                  <option value="white">wit</option>
+                  <option value="black" selected>zwart</option>
+                  <option value="blue">blauw</option>
+                  <option value="red">rood</option>
+                  <option value="yellow">geel</option>
+                  <option value="green">groen</option>
+                  <option value="orange">oranje</option>
+                  <option value="purple">paars</option>
+                  <option value="beige">beige</option>
+                  <option value="gray">grijs</option>
+                </select>
+                <br>
+                <strong>Achtergrondkleur:</strong>
+                <select name="backgroundColor" id="achtergrondkleur" onchange="veranderAchtergrond()">
+                  <option value="white" selected>wit</option>
+                  <option value="black">zwart</option>
+                  <option value="blue">blauw</option>
+                  <option value="red">rood</option>
+                  <option value="yellow">geel</option>
+                  <option value="green">groen</option>
+                  <option value="orange">oranje</option>
+                  <option value="purple">paars</option>
+                  <option value="beige">beige</option>
+                  <option value="gray">grijs</option>
+                </select>
+              </form>
+            </div>
+            <button id="kleurenbutton"  onmouseover="displaykleur()">Kleuren</button>
+          </nav>
+      </fieldset>
+      <br>
+      <form id="form"method="post" action="/presentaties" onchange="save()">
+        <input  value="" type="text" name="titel" id="titel1" placeholder="Titel" onclick="bewerkBoven(); bewerkText();"><h1 id="titel"></h1>
+        <textarea name="text" rows="8" cols="80" placeholder="Koptekst" id="boven"></textarea><br><!--<input value="" type="text" name="text" id="boven1" placeholder="Koptekst" onchange="bewerkTitel1(); bewerkText1();"><h4 onclick="bewerkBoven()" id="boven"></h4>-->
+        <textarea name="text1" rows="8" cols="80" placeholder="Tekst" id="tekst"></textarea><!--<input value="" type="text" name="text1" id="tekst1" placeholder="Tekst" onchange="bewerkTitel1(); bewerkBoven1();"><p onclick="bewerkText()" id="tekst"></p>-->
+        <br>
+        Grootte = <input value="20" type="number" name="width" min="5" max="100" id="width">%
+        <br>
+        <input id="afbeelding_url" value="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fimg.freepik.com%2Ficonen-gratis%2Fafbeelding-invoegen-icoon_318-33972.jpg%3Fsize%3D338%26ext%3Djpg&f=1" onchange="afbset()" type="text" name="afbeelding_url" value="">
+        <br>
+        <img width="20%" height="auto" id="afbe" src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fimg.freepik.com%2Ficonen-gratis%2Fafbeelding-invoegen-icoon_318-33972.jpg%3Fsize%3D338%26ext%3Djpg&f=1" onclick="afb()"></img>
+      </form>
+      <!--<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyAtQe1uDHqZgmTE6BUfhQ8Pga_lDGlYgxE",
+          authDomain: "zelfpresentatiemaken.firebaseapp.com",
+          databaseURL: "https://zelfpresentatiemaken.firebaseio.com",
+          projectId: "zelfpresentatiemaken",
+          storageBucket: "",
+          messagingSenderId: "75387025741"
+        };
+        firebase.initializeApp(config);
+        // var defaultDatabase = firebase.database().ref("gebruikers/afTbknRjTsmHejemnCp9");
+        const dbRef = firebase.database().ref();
+        const usersRef = dbRef.child('gebruikers');
+        console.log(usersRef)
+      </script>
+      <script>
+        async function getInformation(){
+      	 var data = await fetch("https://zelfpresentatiemaken.firebaseio.com/gebruikers/hananja/presentaties.json", {
+            headers: {
+              "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+              "X-Firebase-Decoding": '1'
+            }
+          }
+        )
+          var rawData = await data.json()
+          console.log(rawData);
+        }
+        getInformation()
+      </script>-->
+    <script type="text/javascript" src="/script">
+
+    </script>
+  </body>
+</html>
